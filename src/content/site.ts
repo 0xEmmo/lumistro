@@ -8,7 +8,7 @@ export const site = {
   revision: "2026.10",
   availability: "Open to frontend & full-stack opportunities",
   openTo: ["Full-time", "Contract", "Freelance"],
-  links: { github: "https://github.com/0xEmmo", x: "https://x.com/lumistro", instagram: "https://www.instagram.com/lumistro_/" },
+  links: { github: "https://github.com/0xEmmo", x: "https://x.com/lumistro", linkedin: "https://www.linkedin.com/in/emmanuel-balogun-a40844440", instagram: "https://www.instagram.com/lumistro_/" },
 } as const;
 
 export const statement = {

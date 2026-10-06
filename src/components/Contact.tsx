@@ -6,6 +6,7 @@ const mailto = `mailto:${site.email}?subject=${encodeURIComponent("Frontend / fu
 const elsewhere = [
   { name: "GitHub", handle: "@0xEmmo", href: site.links.github },
   { name: "X", handle: "@lumistro", href: site.links.x },
+  { name: "LinkedIn", handle: "Emmanuel Balogun", href: site.links.linkedin },
   { name: "Instagram", handle: "@lumistro_", href: site.links.instagram },
 ];
 
