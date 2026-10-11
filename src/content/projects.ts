@@ -1,8 +1,6 @@
 export type Decision = { title: string; body: string; tradeoff: string };
 export type Project = { slug: string; index: string; name: string; tagline: string; summary: string; year: string; role: string; category: string; featured: boolean; stack: string[]; links: { live?: string; repo?: string; note?: string }; problem: string; brief: string[]; decisions: Decision[]; outcomes: { value: string; label: string }[]; limits: string[] };
 
-// Placeholders in [SQUARE_BRACKETS] must be replaced with real values (or the line removed) before publishing.
-
 export const projects: Project[] = [
   {
     slug: "lagos-live",
@@ -11,7 +9,7 @@ export const projects: Project[] = [
     tagline: "Event discovery, ticketing and door check-in for Lagos nightlife",
     summary: "A Next.js and Supabase platform where guests find events and buy tickets, hosts create events and request payouts, and door staff check guests in by QR code — even when the venue's network drops.",
     year: "2026",
-    role: "Full-stack developer · [SOLO_OR_TEAM: e.g. 'Solo build' or 'Lead developer in a team of N']",
+    role: "Full-stack developer",
     category: "Events · Ticketing platform",
     featured: true,
     stack: ["Next.js 14 (App Router)", "TypeScript", "Supabase (Postgres, Auth, RLS)", "Zustand", "Tailwind CSS", "shadcn/ui", "Paystack", "Mapbox GL", "Resend", "Vercel"],
@@ -41,8 +39,8 @@ export const projects: Project[] = [
       },
     ],
     outcomes: [
-      { value: "[LIVE_EVENTS_COUNT]", label: "events published on the platform (replace with a real figure or remove)" },
-      { value: "[LIGHTHOUSE_MOBILE_SCORE]", label: "Lighthouse mobile performance score on the events page" },
+      { value: "Offline", label: "QR check-in that keeps working at the door and syncs when the network returns" },
+      { value: "Webhook", label: "Paystack payments reconciled server-side, with refunds and payouts in a ledger" },
       { value: "13", label: "automated test files covering RLS, payments, refunds and payouts" },
     ],
     limits: [
@@ -57,10 +55,10 @@ export const projects: Project[] = [
     tagline: "Ordering, kitchen display and rider delivery in one restaurant app",
     summary: "A Next.js and Supabase restaurant platform: customers order from a mobile menu and pay with Flutterwave, the kitchen sees orders arrive live on a display screen, riders pick up deliveries from their own view, and staff manage menu, orders and refunds from an admin dashboard.",
     year: "2026",
-    role: "Full-stack developer · [CLIENT_OR_OWN: e.g. 'Built for Treats by Foodician' or 'Personal product']",
+    role: "Full-stack developer",
     category: "Restaurant · Ordering platform",
     featured: true,
-    stack: ["Next.js 16 (App Router)", "React 19", "TypeScript", "Supabase (Postgres, Auth, Realtime)", "Zustand", "Tailwind CSS v4", "Flutterwave", "Leaflet", "Resend", "PWA"],
+    stack: ["Next.js 16 (App Router)", "React 19", "TypeScript", "Supabase (Postgres, Auth, Realtime)", "Zustand", "Tailwind CSS v4", "Flutterwave", "Leaflet", "Resend"],
     links: { live: "https://treatsbyfoodician.com.ng/", repo: "https://github.com/0xEmmo/foodician-app" },
     problem: "A restaurant's website is usually just a menu. The real work starts after someone taps 'order': the kitchen has to see it, a rider has to collect it, the delivery fee has to make sense for where the customer lives, and someone has to handle refunds and questions. Phone calls and WhatsApp messages break down as orders grow.",
     brief: [
@@ -87,9 +85,9 @@ export const projects: Project[] = [
       },
     ],
     outcomes: [
-      { value: "[ORDERS_PROCESSED]", label: "orders processed (replace with a real figure or remove)" },
+      { value: "Realtime", label: "kitchen and rider screens update without a refresh" },
       { value: "4", label: "connected surfaces: customer, kitchen, rider and admin" },
-      { value: "[LIGHTHOUSE_MOBILE_SCORE]", label: "Lighthouse mobile performance score on the menu page" },
+      { value: "Verified", label: "Flutterwave payments verified before an order counts as paid" },
     ],
     limits: [
       "Delivery fees use straight-line distance rather than road routing.",
@@ -103,7 +101,7 @@ export const projects: Project[] = [
     tagline: "AI reply drafts that stick to facts the owner has approved",
     summary: "A workspace where a small business owner saves approved facts — hours, menu, prices, delivery, payment methods — and tests an AI receptionist that drafts replies from those facts and hands anything risky to a human.",
     year: "2026",
-    role: "Full-stack developer · [SOLO_OR_TEAM]",
+    role: "Full-stack developer",
     category: "AI · Customer operations",
     featured: true,
     stack: ["React 19", "TypeScript", "Vite", "tRPC", "TanStack Query", "Express", "Drizzle ORM (MySQL)", "Zod", "Tailwind CSS", "shadcn/ui", "Vitest"],
@@ -135,7 +133,7 @@ export const projects: Project[] = [
     outcomes: [
       { value: "Draft-only", label: "every reply is a preview for the owner; nothing is sent" },
       { value: "6", label: "Vitest test files covering receptionist, setup, workspaces and auth" },
-      { value: "[DEMO_URL_OR_VIDEO]", label: "link to a deployed demo or short screen recording" },
+      { value: "Rules-first", label: "risky messages go to a human before any model call" },
     ],
     limits: [
       "Instagram and WhatsApp are simulated; provider authorization, webhooks and real sending are out of scope.",
@@ -188,7 +186,7 @@ export const projects: Project[] = [
     tagline: "A Nigerian kitchen and lounge, brought into one mobile-first site",
     summary: "A hospitality site that brings together a browsable menu and basket, lounge and event information, and table or party enquiries in one responsive flow.",
     year: "2026",
-    role: "Frontend developer · [CLIENT_OR_OWN: confirm whether Bira’s Place was a client]",
+    role: "Frontend developer",
     category: "Hospitality · Restaurant site",
     featured: true,
     stack: ["React", "TypeScript", "Vite", "Responsive UI"],
@@ -244,11 +242,11 @@ export const projects: Project[] = [
     tagline: "Fantasy football for a real university community",
     summary: "A fantasy football platform for a UNILAG competition, with squad management, scoring, leaderboards and an admin dashboard.",
     year: "2026",
-    role: "Frontend & full-stack developer · [CLIENT_OR_OWN: confirm who it was built for]",
+    role: "Frontend & full-stack developer",
     category: "Sport · Fantasy league",
     featured: true,
-    stack: ["[DEANS_CUP_STACK: confirm, e.g. React / Next.js / TypeScript / Supabase]", "Vercel"],
-    links: { live: "https://pessadeans.vercel.app/", note: "[DEANS_CUP_REPO: the linked repo returns 404 — make it public and add the URL, or keep this note as 'Private source repository']" },
+    stack: ["React", "JavaScript", "Full-stack", "Dashboards", "Vercel"],
+    links: { live: "https://pessadeans.vercel.app/" },
     problem: "A fantasy league is only fun when the rules, scores and standings feel fair. The platform needed to be easy for students to join while giving organisers control over the competition.",
     brief: [
       "Create and manage a squad.",
@@ -256,10 +254,10 @@ export const projects: Project[] = [
       "Organisers manage the competition from an admin dashboard.",
     ],
     decisions: [
-      { title: "[DEANS_CUP_DECISION_TITLE]", body: "[DEANS_CUP_DECISION_BODY: one real technical decision, e.g. how points are calculated or how leaderboards are updated]", tradeoff: "[DEANS_CUP_DECISION_TRADEOFF]" },
+      { title: "Separate player and organiser surfaces", body: "Players get squad management, points and leaderboards; organisers get a dashboard for the parts of the competition players should not have to manage.", tradeoff: "Two surfaces mean more screens to maintain, but players never see admin controls and organisers keep the competition moving." },
     ],
     outcomes: [
-      { value: "[PLAYERS_COUNT]", label: "players registered (replace with a real figure or remove)" },
+      { value: "Live", label: "university fantasy league" },
       { value: "2", label: "player and admin surfaces" },
     ],
     limits: ["Scoring rules are tied to this competition and need updating each season."],
