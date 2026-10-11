@@ -377,6 +377,53 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "haze",
+    index: "09",
+    name: "Haze",
+    tagline: "A fragrance store built around the fact you can’t smell it online",
+    summary: "A shop for a small, fictional Lagos fragrance and candle house. Instead of a grid and a buy button, it gives you ways in: a swipe quiz that matches scents with reasons, a scent wheel you can spin, side-by-side comparison, and a sample box whose cost comes back as credit on a full bottle.",
+    year: "2026",
+    role: "Frontend developer",
+    category: "Fragrance · Discovery store",
+    featured: true,
+    stack: ["React 19", "TypeScript", "Zustand", "Motion", "SVG", "React Router 7", "Vite", "vite-plugin-pwa", "Vitest", "Playwright + axe-core"],
+    links: { live: "https://haze-phi-seven.vercel.app", repo: "https://github.com/0xEmmo/haze" },
+    image: { src: "/work/haze.webp", width: 1600, height: 1000, alt: "Haze’s home page: the headline “Fragrance, found slowly” in a soft serif, with buttons to find your scent or try five, beside a photograph of a person in warm evening light", caption: "Home on desktop. Haze and its prices are fictional; the photographs are real and credited." },
+    problem: "Buying perfume online is guesswork, because the one thing that matters cannot be shown on a screen. The store needed to translate smell into choices people can actually make — and make trying cheap enough to risk.",
+    brief: [
+      "A scent quiz: swipe eight cards and set three dials, then get a radar of your profile and top matches with a plain reason for each.",
+      "An SVG scent wheel of eight families and thirty-two notes you can tap or spin, linking each note to the perfumes that carry it.",
+      "Product pages with a tappable note pyramid and a dry-down slider that fades top notes into the base through the day.",
+      "Compare up to three perfumes, build a five-vial sample box, and check out with gift wrap, delivery by state, and card or transfer.",
+    ],
+    decisions: [
+      {
+        title: "Matching that explains itself",
+        body: "Each perfume is scored 70% on how closely its family profile matches yours, 20% on strength and 10% on time of day, and the reasons are recorded as it goes. Passing on a card counts against those families, so “no” is information too.",
+        tradeoff: "A simple, visible formula is less clever than a trained model, but every match can be explained in one sentence.",
+      },
+      {
+        title: "Wheel geometry as tested functions",
+        body: "Arc paths, segment subdivision, shortest-way-round rotation and label flipping live in plain functions with unit tests, so the component only wires up pointer and keyboard events. Every segment is a named button, mirrored by a row of family chips.",
+        tradeoff: "More upfront maths, but the wheel can be spun with a finger, a mouse or the keyboard.",
+      },
+      {
+        title: "Sample credit capped by order history",
+        body: "The checkout re-prices the bag from the catalogue, checks stock and caps the sample-box credit at what your order history has actually earned.",
+        tradeoff: "The credit rules are stricter to implement than a flat discount code, but they cannot be gamed from the client.",
+      },
+    ],
+    outcomes: [
+      { value: "32", label: "notes across eight families on an interactive wheel" },
+      { value: "₦18,000", label: "sample box returned as credit on a full bottle within 30 days" },
+      { value: "2", label: "viewports (390px and 1440px) checked with Playwright and axe" },
+    ],
+    limits: [
+      "The catalogue, pricing and payment gateway are mocks; nothing is charged.",
+      "Bag, sample box and orders are stored on the device rather than in an account.",
+    ],
+  },
+  {
     slug: "ai-news-surface",
     index: "10",
     name: "AI News Surface",
