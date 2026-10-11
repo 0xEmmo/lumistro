@@ -189,6 +189,53 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "ajo",
+    index: "05",
+    name: "Ajo",
+    tagline: "An offline-first ledger for ajo and esusu savings circles",
+    summary: "An installable web app for the person who keeps the book in a savings circle: who has paid, who is short and whose turn it is to collect. It works at the market with no signal, and when two phones edit the same week while out of touch, it shows both versions instead of quietly losing one.",
+    year: "2026",
+    role: "Frontend developer",
+    category: "Fintech · Offline-first PWA",
+    featured: true,
+    stack: ["React 19", "TypeScript", "Automerge 3 (CRDT)", "IndexedDB", "Vite", "vite-plugin-pwa (Workbox)", "React Router", "Vitest", "Playwright + axe-core", "GitHub Actions"],
+    links: { live: "https://ajo-beige.vercel.app", repo: "https://github.com/0xEmmo/ajo" },
+    image: { src: "/work/ajo.webp", width: 1600, height: 1000, alt: "Ajo’s contribution grid for an Ikeja market circle: paid, late and missed squares per member, the payout rotation along the top, and a card showing two versions of one member’s week 5 payment", caption: "After reconnecting — two phones disagreed about week 5, and both versions are kept for a person to choose." },
+    problem: "Ajo and esusu circles usually run from an exercise book or a WhatsApp group. The book-keeper is often at a market stall with poor signal, and two people may record the same payment differently. A ledger that keeps whichever edit came last can lose ₦10,000 without anyone noticing.",
+    brief: [
+      "A contribution grid with paid, paid late, part paid, missed and due states; on phones it becomes one strip per member, with whoever owes money first.",
+      "Record payments with amount shortcuts and typed amounts like “20k”, then undo from the toast.",
+      "Rotation shows whose turn it is, what is in the pot and who is still short, and asks before paying out less than the full pot.",
+      "Start a circle in three steps or join one with a QR code, link or invite code; after joining, everything works offline.",
+    ],
+    decisions: [
+      {
+        title: "A CRDT instead of last-write-wins",
+        body: "Each circle is one Automerge document and payments are keyed by member and round, so two phones writing the same square write the same key. Automerge never drops a concurrent write; the app reads its conflicts and shows both versions, and picking one clears the clash on every phone once they sync.",
+        tradeoff: "Automerge’s wasm is about 1.2 MB gzipped, so the first visit is heavier; after that the service worker starts the app from cache.",
+      },
+      {
+        title: "A sync queue that is real, not a counter",
+        body: "Every local edit records the hash of the change it made, and it only leaves the visible queue when the relay’s copy contains that hash. Each simulated phone has its own IndexedDB database, with writes merged inside one transaction so two tabs cannot overwrite each other.",
+        tradeoff: "More bookkeeping than a simple “pending” flag, but the screen never claims something has synced when it hasn’t.",
+      },
+      {
+        title: "Totals by money, squares by history",
+        body: "If someone missed week 2 and paid double in week 3, week 2 still reads “missed” because that is what happened, but their balance shows they owe nothing.",
+        tradeoff: "Two views of the same member can look contradictory at first, so the key under the grid explains it.",
+      },
+    ],
+    outcomes: [
+      { value: "Offline", label: "recording, rotation and members all work with no signal" },
+      { value: "Both", label: "versions kept when two phones edit the same week, for a person to settle" },
+      { value: "WCAG 2.2", label: "AA rules checked with axe on phone and desktop in the end-to-end tests" },
+    ],
+    limits: [
+      "There is no server yet: the relay lives inside one browser, so syncing works between tabs, not between two real phones.",
+      "No accounts or encryption at rest, so anyone with an invite link can join.",
+    ],
+  },
+  {
     slug: "ai-news-surface",
     index: "10",
     name: "AI News Surface",
