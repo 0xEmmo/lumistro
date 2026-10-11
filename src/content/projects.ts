@@ -153,7 +153,7 @@ export const projects: Project[] = [
     featured: true,
     stack: ["React 19", "TypeScript", "three.js (WebGPU + TSL)", "WebGL 2 fallback", "OpenStreetMap / Overpass", "Vite", "vite-plugin-pwa", "Vitest", "Playwright + axe-core", "GitHub Actions"],
     links: { live: "https://third-mainland.vercel.app", repo: "https://github.com/0xEmmo/third-mainland" },
-    image: { src: "/work/third-mainland.webp", width: 1440, height: 900, alt: "Third Mainland at the 07:40 morning peak: amber particles packed onto Third Mainland Bridge, a corridor list with speeds on the right and a demand histogram along the bottom", caption: "Weekday, 07:40 — the bridge selected, with both directions’ speed and journey time." },
+    image: { src: "/work/third-mainland.webp", width: 1440, height: 900, alt: "Third Mainland at the 07:42 morning peak: amber particles packed onto Third Mainland Bridge, a corridor list with speeds on the right and a demand histogram along the bottom", caption: "Weekday, 07:42 — Third Mainland Bridge selected, with both directions’ speed and journey time." },
     problem: "Everyone in Lagos knows Third Mainland Bridge is slow at 07:40, but traffic is usually shown as a red line on a map with no sense of rhythm. I wanted a map that shows the city breathing through a day — and runs smoothly on an ordinary phone, not just a gaming laptop.",
     brief: [
       "Scrub the day on a demand histogram, jump to the morning peak, midday, evening peak or night, or press play to run the clock.",
