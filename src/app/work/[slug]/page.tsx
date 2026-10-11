@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, getProject } from "@/content/projects";
@@ -82,6 +83,24 @@ export default async function CaseStudy({ params }: Params) {
           </div>
         )}
       </header>
+
+      {project.image && (
+        <figure className={styles.plate}>
+          <div className={styles.plateFrame}>
+            <Image
+              src={project.image.src}
+              width={project.image.width}
+              height={project.image.height}
+              alt={project.image.alt}
+              sizes="(min-width: 1200px) 1100px, 100vw"
+            />
+          </div>
+          <figcaption className={styles.plateCaption}>
+            <span className="label">Plate</span>
+            {project.image.caption}
+          </figcaption>
+        </figure>
+      )}
 
       <section className={styles.block} data-reveal="pending">
         <div className={styles.blockHead}>

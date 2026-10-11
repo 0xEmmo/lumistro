@@ -1,5 +1,6 @@
 export type Decision = { title: string; body: string; tradeoff: string };
-export type Project = { slug: string; index: string; name: string; tagline: string; summary: string; year: string; role: string; category: string; featured: boolean; stack: string[]; links: { live?: string; repo?: string; note?: string }; problem: string; brief: string[]; decisions: Decision[]; outcomes: { value: string; label: string }[]; limits: string[] };
+export type ProjectImage = { src: string; width: number; height: number; alt: string; caption: string };
+export type Project = { slug: string; index: string; name: string; tagline: string; summary: string; year: string; role: string; category: string; featured: boolean; stack: string[]; links: { live?: string; repo?: string; note?: string }; image?: ProjectImage; problem: string; brief: string[]; decisions: Decision[]; outcomes: { value: string; label: string }[]; limits: string[] };
 
 export const projects: Project[] = [
   {
