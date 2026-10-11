@@ -1,24 +1,24 @@
 export const site = {
   name: "Emmanuel Balogun",
-  role: "Frontend & Full-Stack Developer",
+  role: "Frontend Developer (React / Next.js / TypeScript)",
   location: "Lagos, Nigeria",
   timezone: "Africa/Lagos",
   email: "lumistrodev@gmail.com",
   url: "https://lumistro.vercel.app",
   revision: "2026.10",
-  availability: "Open to frontend & full-stack opportunities",
+  availability: "Open to frontend developer roles",
   openTo: ["Full-time", "Contract", "Freelance"],
   links: { github: "https://github.com/0xEmmo", x: "https://x.com/lumistro", linkedin: "https://www.linkedin.com/in/emmanuel-balogun-a40844440", instagram: "https://www.instagram.com/lumistro_/" },
 } as const;
 
 export const statement = {
   headline: "I build the whole thing, and then keep it running.",
-  lede: "I'm a frontend and full-stack developer in Lagos. I build responsive websites, dashboards, platforms, AI tools, and automation systems — taking an idea from its first interface to a live product people can actually use.",
+  lede: "I'm a frontend developer in Lagos building with React, Next.js and TypeScript. I ship mobile-first products end to end — from the interface people tap on to the Supabase data, payments and realtime updates behind it.",
 };
 
 export const figures = [
-  { value: "8", unit: "projects", label: "Food, events, commerce, sport, restaurants and AI" },
-  { value: "4", unit: "live", label: "Public deployments you can open right now" },
+  { value: "9", unit: "projects", label: "Events, food, commerce, sport, AI and automation" },
+  { value: "6", unit: "live", label: "Public deployments you can open right now" },
   { value: "1", unit: "approach", label: "Design the interface, build the system, own the outcome" },
 ];
 
@@ -32,17 +32,17 @@ export const principles = [
 ];
 
 export const stack = [
-  { group: "Languages", items: [{ name: "JavaScript", note: "Interactive web products, APIs and browser experiences" }, { name: "TypeScript", note: "Safer application code and clearer contracts as products grow" }, { name: "HTML / CSS", note: "Semantic structure, responsive layouts and custom visual systems" }] },
-  { group: "Interface", items: [{ name: "React", note: "Product interfaces, dashboards and reusable component systems" }, { name: "Vite", note: "Fast front-end builds for focused web applications and experiments" }, { name: "Tailwind CSS", note: "Consistent responsive foundations with room for a specific visual voice" }, { name: "CSS Modules", note: "Hand-written styles when the design system deserves its own vocabulary" }] },
-  { group: "Server & data", items: [{ name: "Node.js", note: "Server-side logic, API routes and integrations" }, { name: "REST APIs", note: "Connecting interfaces to data, services and operational workflows" }, { name: "Supabase", note: "Auth, data, storage and practical backend building blocks" }, { name: "SQL", note: "Thinking clearly about records, relationships and the data a screen depends on" }] },
-  { group: "Delivery & AI", items: [{ name: "Git / GitHub", note: "Versioned work, collaboration and a readable project history" }, { name: "Vercel", note: "Preview-first deployment and a short path from build to live URL" }, { name: "AI integrations", note: "Useful AI features placed inside real product workflows" }, { name: "Automation", note: "Removing repetitive steps from content, operations and reporting" }] },
+  { group: "Languages", items: [{ name: "TypeScript", note: "Typed app code across Next.js, tRPC and Supabase projects" }, { name: "JavaScript", note: "Interactive web products, APIs and browser experiences" }, { name: "HTML / CSS", note: "Semantic structure, responsive layouts and custom visual systems" }] },
+  { group: "Interface", items: [{ name: "React", note: "Product interfaces, dashboards and reusable component systems" }, { name: "Next.js (App Router)", note: "Server and client components, API routes, middleware and SEO metadata" }, { name: "Tailwind CSS / shadcn/ui", note: "Consistent responsive foundations with room for a specific visual voice" }, { name: "CSS Modules", note: "Hand-written styles when the design system deserves its own vocabulary" }, { name: "Vite", note: "Fast front-end builds for focused web applications" }] },
+  { group: "State & data", items: [{ name: "Zustand", note: "Client state for carts, auth sessions and location in Lagos Live and Foodician" }, { name: "TanStack Query + tRPC", note: "Type-safe data fetching from server to UI in Lumistro Relay" }, { name: "Supabase", note: "Postgres, auth, row-level security and realtime subscriptions" }, { name: "Node.js / REST APIs", note: "Server routes, webhooks and integrations like Paystack and Flutterwave" }] },
+  { group: "Delivery & AI", items: [{ name: "Git / GitHub", note: "Versioned work, collaboration and a readable project history" }, { name: "Vercel", note: "Preview-first deployment and a short path from build to live URL" }, { name: "Testing", note: "Vitest and Node test suites for business logic and access rules" }, { name: "AI integrations", note: "LLM features with guardrails placed inside real product workflows" }] },
 ];
 
 export const profile = {
   paragraphs: [
-    "I'm a frontend and full-stack developer based in Lagos. I work across the visible part of a product — the page, the flow, the brand — and the practical part underneath it that makes the experience hold together.",
+    "I'm a frontend developer based in Lagos. I work across the visible part of a product — the page, the flow, the brand — and the practical part underneath it that makes the experience hold together.",
     "My projects have taken me from restaurant operations and event discovery to fantasy sports, commerce, street food and AI-powered tools. I like work with a real user, a real constraint, and a reason to exist beyond looking impressive in a browser tab.",
-    "I build with JavaScript, React, TypeScript, Vite, Tailwind CSS, APIs, Supabase and Vercel, while staying comfortable moving between interface decisions and the systems that support them.",
+    "I build with React, Next.js and TypeScript, using Tailwind CSS, Zustand, TanStack Query and Supabase, and ship on Vercel — comfortable moving between interface decisions and the systems that support them.",
   ],
-  seeking: "I'm looking for a frontend or full-stack role, freelance project or collaboration where thoughtful design and solid implementation are treated as partners.",
+  seeking: "I'm looking for a frontend developer role — remote or in Lagos — where thoughtful design and solid implementation are treated as partners.",
 };

@@ -5,7 +5,7 @@ const facts = [
   { field: "Based in", value: site.location },
   { field: "Focus", value: "Frontend · Full-stack · AI tools" },
   { field: "Domains", value: "Food · Events · Commerce · Sport · AI" },
-  { field: "Works in", value: "JavaScript, React, TypeScript, Vite, Tailwind" },
+  { field: "Works in", value: "Next.js, React, TypeScript, Tailwind CSS, Zustand, Supabase" },
   { field: "Ships with", value: "GitHub · APIs · Supabase · Vercel" },
   { field: "Open to", value: site.openTo.join(" · ") },
 ];

@@ -38,6 +38,8 @@
 }
 
 .name {
+  /* Keep the name whole; the longer role truncates first. */
+  flex: none;
   font-size: var(--step-small);
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -48,6 +50,7 @@
 
 .role {
   display: none;
+  min-width: 0;
   font-size: var(--step-micro);
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -282,6 +285,14 @@
 @media (min-width: 560px) {
   .role {
     display: block;
+  }
+}
+
+/* Between 900px and 1279px the inline nav takes the space the role needs, so
+   it would truncate to a single letter; the hero still shows the full role. */
+@media (min-width: 900px) and (max-width: 1279px) {
+  .role {
+    display: none;
   }
 }
 
