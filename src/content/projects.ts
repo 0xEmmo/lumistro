@@ -330,6 +330,53 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "koko",
+    index: "08",
+    name: "Kòkó",
+    tagline: "Book the hands behind the work",
+    summary: "A booking web app for independent photographers, barbers, braiders and makeup artists in Lagos and Abuja. Clients browse real portfolios, pick a time that is actually free and secure it with a deposit; creatives get a small studio dashboard for their week.",
+    year: "2026",
+    role: "Frontend developer",
+    category: "Creative services · Booking app",
+    featured: true,
+    stack: ["React 19", "TypeScript", "React Router 7", "CSS Modules", "Web Locks + BroadcastChannel", "Vite", "vite-plugin-pwa", "Vitest", "Playwright + axe-core", "GitHub Actions"],
+    links: { live: "https://koko-omega-amber.vercel.app", repo: "https://github.com/0xEmmo/koko" },
+    image: { src: "/work/koko.webp", width: 1440, height: 900, alt: "Kòkó’s discover page: the headline “Book the hands behind the work” beside portrait photographs, with craft filters and a search bar below", caption: "Discover on desktop. Creatives and prices are fictional; the 103 photographs are real and credited." },
+    problem: "Independent creatives take bookings through DMs, which means double-bookings, no-shows and awkward deposit conversations. A booking flow has to know the creative’s real availability and hold a slot fairly while a client pays.",
+    brief: [
+      "Discover creatives by craft, city, price and availability, with filters in the URL.",
+      "Each profile has a masonry gallery with a keyboard- and swipe-friendly lightbox.",
+      "Book in four steps — service, time, details, deposit — with the slot held for ten minutes and a visible countdown.",
+      "Reschedule or cancel under the creative’s notice policy, add the booking to a calendar, and see it arrive live in the studio dashboard.",
+    ],
+    decisions: [
+      {
+        title: "The mock API behaves like a server",
+        body: "Pages only talk to one client module that returns promises with realistic latency and typed errors such as slot-taken, hold-expired and card-declined. A footer control makes the network slow, flaky or offline, so loading, retry and offline states are real.",
+        tradeoff: "Building a fake backend takes time, but swapping in real HTTP calls would not touch the UI.",
+      },
+      {
+        title: "Two tabs cannot book the same slot",
+        body: "Every write runs inside a Web Lock, so two tabs booking the same slot at the same moment cannot both win. Changes are broadcast so open pages refresh, and a slot taken elsewhere disappears with an explanation.",
+        tradeoff: "Locks only coordinate one browser; a real deployment would need the same guarantee on the server.",
+      },
+      {
+        title: "Time is always Lagos time",
+        body: "Slots are stored as minutes past midnight on a date in Africa/Lagos, whatever the visitor’s timezone — which is what a client in London booking a Lagos barber expects.",
+        tradeoff: "Visitors abroad see Lagos times rather than their own, so the timezone is labelled.",
+      },
+    ],
+    outcomes: [
+      { value: "10 min", label: "slot holds with a visible countdown" },
+      { value: "103", label: "real photographs, encoded to AVIF and WebP with zero layout shift" },
+      { value: "3", label: "test cards covering approved, declined and insufficient funds" },
+    ],
+    limits: [
+      "Everything runs against a mock API in the browser; no real bookings or payments are made.",
+      "Data lives in the visitor’s browser, so the studio dashboard only sees bookings made on the same device.",
+    ],
+  },
+  {
     slug: "ai-news-surface",
     index: "10",
     name: "AI News Surface",
