@@ -142,6 +142,53 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "third-mainland",
+    index: "04",
+    name: "Third Mainland",
+    tagline: "A GPU-rendered night map of how Lagos moves through a day",
+    summary: "An installable web app where 40,000 particles flow along Lagos’s real roads, BRT lanes, rail lines and ferry routes. Scrub the clock or switch to a Saturday or a rain day, and every corridor’s speed, journey time and timetable changes with it.",
+    year: "2026",
+    role: "Frontend developer · Data visualisation",
+    category: "Data visualisation · WebGPU map",
+    featured: true,
+    stack: ["React 19", "TypeScript", "three.js (WebGPU + TSL)", "WebGL 2 fallback", "OpenStreetMap / Overpass", "Vite", "vite-plugin-pwa", "Vitest", "Playwright + axe-core", "GitHub Actions"],
+    links: { live: "https://third-mainland.vercel.app", repo: "https://github.com/0xEmmo/third-mainland" },
+    image: { src: "/work/third-mainland.webp", width: 1440, height: 900, alt: "Third Mainland at the 07:40 morning peak: amber particles packed onto Third Mainland Bridge, a corridor list with speeds on the right and a demand histogram along the bottom", caption: "Weekday, 07:40 — the bridge selected, with both directions’ speed and journey time." },
+    problem: "Everyone in Lagos knows Third Mainland Bridge is slow at 07:40, but traffic is usually shown as a red line on a map with no sense of rhythm. I wanted a map that shows the city breathing through a day — and runs smoothly on an ordinary phone, not just a gaming laptop.",
+    brief: [
+      "Scrub the day on a demand histogram, jump to the morning peak, midday, evening peak or night, or press play to run the clock.",
+      "Switch between a weekday, a Saturday (midday market peak, thinner timetables) and a rain day (less road capacity, fewer ferries).",
+      "Tap any corridor, or pick it from a sortable list, for both directions’ speed and end-to-end time, or headway and next departure for transit.",
+      "Every figure on the map is also in a plain table view, and the app installs and works offline after the first visit.",
+    ],
+    decisions: [
+      {
+        title: "Move the dots on the GPU, write two numbers per road on the CPU",
+        body: "Each particle is one instance of a quad with its corridor, direction and phase packed into attributes once. Every frame the CPU writes only how far the flow has advanced and how full the road is into a small texture; the vertex shader looks up the route in a path texture and places the dot. When nothing moves, the map only redraws on change.",
+        tradeoff: "Shader code is harder to debug than DOM or Canvas 2D, but 40,000 moving points stay smooth on a mid-range phone.",
+      },
+      {
+        title: "WebGPU first, with two fallbacks",
+        body: "The three.js WebGPU renderer falls back to WebGL 2 automatically, and again if a WebGPU device is lost at start-up. If neither starts, the table view becomes the whole app instead of a blank screen.",
+        tradeoff: "Every visual has to work on two backends, which limits some effects, but nobody gets an empty canvas.",
+      },
+      {
+        title: "Real geometry, an honest model",
+        body: "A small TypeScript pipeline pulls roads and routes from OpenStreetMap, traces each corridor with Dijkstra and simplifies it into a 125 KB file. The traffic on top is a hand-tuned model using the BPR speed curve transport planners use, and an “Illustrative” badge on screen explains exactly that.",
+        tradeoff: "It cannot tell you about today’s traffic, but it never pretends to.",
+      },
+    ],
+    outcomes: [
+      { value: "40,000", label: "particles rendered on the GPU along real corridors" },
+      { value: "125 KB", label: "of processed map data, built from OpenStreetMap" },
+      { value: "2", label: "viewports (390px and 1440px) checked with Playwright and axe in CI" },
+    ],
+    limits: [
+      "Flows come from a modelled day, not live traffic data.",
+      "Map data covers a box around central Lagos, not the whole state.",
+    ],
+  },
+  {
     slug: "ai-news-surface",
     index: "10",
     name: "AI News Surface",
