@@ -1,3 +1,5 @@
+import { projects } from "./projects";
+
 export const site = {
   name: "Emmanuel Balogun",
   role: "Frontend & Full-Stack Developer",
@@ -17,8 +19,8 @@ export const statement = {
 };
 
 export const figures = [
-  { value: "9", unit: "projects", label: "Events, food, commerce, sport, AI and automation" },
-  { value: "6", unit: "live", label: "Public deployments you can open right now" },
+  { value: String(projects.length), unit: "projects", label: "Events, food, commerce, fintech, maps, accessibility, AI and automation" },
+  { value: String(projects.filter((p) => p.links.live).length), unit: "live", label: "Public deployments you can open right now" },
   { value: "1", unit: "approach", label: "Design the interface, build the system, own the outcome" },
 ];
 
