@@ -283,6 +283,53 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "ewa",
+    index: "07",
+    name: "Ẹwà",
+    tagline: "A Next.js skincare store for brown and deep skin",
+    summary: "A storefront for five African skincare brands: browse eighteen products, build a routine with a short quiz, match a shade, and check out by card, transfer or pay on delivery — then follow the order from packing to the rider.",
+    year: "2026",
+    role: "Frontend developer",
+    category: "Beauty · Next.js storefront",
+    featured: true,
+    stack: ["Next.js 16 (App Router)", "React 19", "TypeScript", "Zustand", "CSS Modules", "Route handlers", "Service worker (PWA)", "Vitest", "Playwright + axe-core", "GitHub Actions"],
+    links: { live: "https://ewa-swart.vercel.app", repo: "https://github.com/0xEmmo/ewa" },
+    image: { src: "/work/ewa.webp", width: 1440, height: 900, alt: "Ẹwà’s home page: a serif headline reading “Skincare made for more melanin, by people who have it” beside a portrait of a woman with deep brown skin and a bestseller card", caption: "Home on desktop. The brands are fictional; the photographs are real and credited." },
+    problem: "Online beauty shops often treat deep skin as an afterthought, and generic checkouts ignore how delivery actually works in Nigeria. The store needed to help someone choose — a routine, a shade — and then price and deliver the order honestly.",
+    brief: [
+      "Filter by concern, skin type, brand, price and stock, with filters in the URL so any view can be shared.",
+      "A six-question routine quiz that builds a morning and night routine with a reason for each step, keeping strong actives out of reactive or pregnant routines.",
+      "A two-question shade matcher (depth and undertone) for tinted products.",
+      "Checkout works out delivery from your state and the time of day, applies promo codes with their real conditions and tracks the order on a live timeline.",
+    ],
+    decisions: [
+      {
+        title: "Prices are never trusted from the client",
+        body: "The bag stores only product slugs, variant ids and quantities. The checkout route handler prices everything again from the catalogue, re-checks stock and promo rules, and refuses quantities the UI would never send.",
+        tradeoff: "Price logic runs twice, but a tampered cart cannot change what someone pays.",
+      },
+      {
+        title: "Prerender what is stable, stream what depends on the visitor",
+        body: "Product pages are prerendered with generateStaticParams; the shop streams its results, and anything that reads the clock — same-day cut-off, order tracking — renders after hydration so the prerendered HTML never bakes in the build time.",
+        tradeoff: "A brief placeholder shows where time-sensitive content will appear, in exchange for fast, cacheable pages.",
+      },
+      {
+        title: "Business rules as plain functions",
+        body: "Routine discounts, promo conditions, delivery windows, the quiz engine and shade ranking live in pure TypeScript with unit tests, separate from the components.",
+        tradeoff: "More files than putting the logic in components, but each rule can be tested without a browser.",
+      },
+    ],
+    outcomes: [
+      { value: "18", label: "products from five brands, with routines, shades and reviews" },
+      { value: "Server", label: "re-pricing and stock checks on every checkout" },
+      { value: "Offline", label: "pages you have visited, your bag and wishlist keep working" },
+    ],
+    limits: [
+      "The catalogue and payment gateway are mocks; brands and products are fictional and nothing is charged.",
+      "Orders are stored on the device, so they do not follow you to another browser.",
+    ],
+  },
+  {
     slug: "ai-news-surface",
     index: "10",
     name: "AI News Surface",
