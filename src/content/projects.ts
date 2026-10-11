@@ -143,7 +143,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ai-news-surface",
-    index: "04",
+    index: "10",
     name: "AI News Surface",
     tagline: "Live headlines turned into short AI-written articles you can question",
     summary: "A Next.js app that pulls current headlines from NewsAPI, uses a Groq-hosted Llama model to expand one into a short article, and lets the reader ask follow-up questions about it.",
@@ -182,7 +182,7 @@ export const projects: Project[] = [
   },
   {
     slug: "biras-place",
-    index: "05",
+    index: "11",
     name: "Bira’s Place",
     tagline: "A Nigerian kitchen and lounge, brought into one mobile-first site",
     summary: "A hospitality site that brings together a browsable menu and basket, lounge and event information, and table or party enquiries in one responsive flow.",
@@ -210,7 +210,7 @@ export const projects: Project[] = [
   },
   {
     slug: "retrospacer",
-    index: "06",
+    index: "12",
     name: "RETROSPACER",
     tagline: "A cosmic streetwear storefront prototype built without a framework",
     summary: "A single-page streetwear store written in plain HTML, CSS and JavaScript, with a catalogue, wishlist, cart, checkout flow, demo sign-in and an admin panel for products and coupons — all stored in the browser.",
@@ -238,7 +238,7 @@ export const projects: Project[] = [
   },
   {
     slug: "deans-cup",
-    index: "07",
+    index: "13",
     name: "Dean’s Cup FPL",
     tagline: "Fantasy football for a real university community",
     summary: "A fantasy football platform for a UNILAG competition, with squad management, scoring, leaderboards and an admin dashboard.",
@@ -265,7 +265,7 @@ export const projects: Project[] = [
   },
   {
     slug: "lumistro-pitch",
-    index: "08",
+    index: "14",
     name: "Lumistro Restaurant Pitch",
     tagline: "A pitch site that makes a restaurant concept easy to remember",
     summary: "A focused presentation site for a restaurant concept, telling a clear visual story about the idea, the atmosphere and the opportunity.",
@@ -285,7 +285,7 @@ export const projects: Project[] = [
   },
   {
     slug: "signal-monitor",
-    index: "09",
+    index: "15",
     name: "Signal Monitor",
     tagline: "A phone call when a new Telegram message arrives",
     summary: "A small Python tool that watches a Telegram channel, calls your phone through Twilio to read the start of a new post aloud, and saves the full text to Telegram Saved Messages.",
