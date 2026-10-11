@@ -236,6 +236,53 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "focus-lens",
+    index: "06",
+    name: "Focus Lens",
+    tagline: "See a page the way a keyboard does",
+    summary: "A Chrome extension and an installable demo, built from one codebase, that numbers every tab stop on a page, draws the path between them and points at where keyboard and screen reader users get stuck — focus traps, unnamed controls, failing contrast and removed focus rings.",
+    year: "2026",
+    role: "Frontend developer · Accessibility",
+    category: "Accessibility · Chrome extension",
+    featured: true,
+    stack: ["TypeScript", "React 19", "Chrome Extension (Manifest V3)", "Vite + CRXJS", "Shadow DOM overlay", "vite-plugin-pwa", "Vitest", "Playwright + axe-core", "GitHub Actions"],
+    links: { live: "https://focus-lens-theta.vercel.app", repo: "https://github.com/0xEmmo/focus-lens" },
+    image: { src: "/work/focus-lens.webp", width: 1440, height: 900, alt: "Focus Lens auditing a sample cinema booking page: numbered tab stops joined by a path, a dashed red loop around a chat widget that traps focus, and a report panel listing nine issues", caption: "The demo’s broken cinema page — numbered tab stops, a focus trap in the chat widget and nine issues in the report." },
+    problem: "Automated checkers catch contrast and missing landmarks, but they miss the problems that stop a keyboard user cold — a chat widget that traps focus, or a field whose only label is its placeholder. I wanted a tool that makes those visible on the page itself, with a fix for each one.",
+    brief: [
+      "Finds keyboard traps, missing accessible names, placeholder-only labels, text contrast failures, positive tabindex jumps, hidden focus styles, unreachable controls and skipped headings.",
+      "Every issue explains what goes wrong for a person, what to change, a code snippet where it helps and a “Show on page” button.",
+      "Reports export as Markdown or JSON, or copy as a ready-to-paste GitHub issue or checklist.",
+      "The demo pairs the panel with a deliberately broken page: fix each flaw and watch the audit change.",
+    ],
+    decisions: [
+      {
+        title: "Find traps by asking the page",
+        body: "Static analysis cannot see a keydown handler that wraps focus, and a content script cannot press Tab. So the audit focuses each stop, sends it a synthetic Tab and follows wherever the page’s own script moves focus, then restores focus and scroll when it is done.",
+        tradeoff: "The audit briefly runs the page’s own code, but it finds a trap that axe-core misses on the same page — and an end-to-end test checks both tools against it.",
+      },
+      {
+        title: "One panel, two sources",
+        body: "The report panel talks to an interface with four methods. The demo audits a sample page in an iframe; the extension sends messages to a content script in the active tab. Everything above that line is shared code.",
+        tradeoff: "The engine had to work across documents, which meant replacing instanceof checks that break in frames.",
+      },
+      {
+        title: "Contrast fixes that keep the brand",
+        body: "Suggestions only move the lightness of the more saturated colour, so an orange button gets a deeper orange rather than grey. Ratios are rounded down, so 4.499:1 reads as a fail.",
+        tradeoff: "The suggestion is not always the closest passing colour mathematically, but it is one a designer would accept.",
+      },
+    ],
+    outcomes: [
+      { value: "8", label: "kinds of check, each mapped to a WCAG criterion" },
+      { value: "0", label: "axe violations in the tool’s own demo shell and panel, checked in CI" },
+      { value: "4", label: "permissions requested by the extension, and nothing leaves the browser" },
+    ],
+    limits: [
+      "Automated checks find roughly a third of real accessibility problems; this does not replace testing with a keyboard and screen reader.",
+      "It reads same-origin stylesheets only and does not look inside cross-origin iframes or judge contrast over images.",
+    ],
+  },
+  {
     slug: "ai-news-surface",
     index: "10",
     name: "AI News Surface",
